@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: winter-arc-2026
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false          # Bạn sẽ điền thủ công trên Render dashboard
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /api/status

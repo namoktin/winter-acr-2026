@@ -1,0 +1,58 @@
+[
+  {
+    "date": "2026-10-03",
+    "reason": "⏰ Dậy đúng 04:30",
+    "xp": 5,
+    "auto": true,
+    "ts": "2026-10-03T08:20:12.785Z"
+  },
+  {
+    "date": "2026-10-03",
+    "reason": "💪 Workout sáng hoàn thành",
+    "xp": 10,
+    "auto": true,
+    "ts": "2026-10-03T08:20:12.785Z"
+  },
+  {
+    "date": "2026-10-03",
+    "reason": "🧊 Tắm lạnh",
+    "xp": 5,
+    "auto": true,
+    "ts": "2026-10-03T08:20:12.785Z"
+  },
+  {
+    "date": "2026-10-03",
+    "reason": "🧘 Thiền/Breathing",
+    "xp": 5,
+    "auto": true,
+    "ts": "2026-10-03T08:20:12.785Z"
+  },
+  {
+    "date": "2026-10-03",
+    "reason": "💧 Uống đủ nước",
+    "xp": 3,
+    "auto": true,
+    "ts": "2026-10-03T08:20:12.785Z"
+  },
+  {
+    "date": "2026-10-03",
+    "reason": "🧠 Deep Work ≥4h",
+    "xp": 10,
+    "auto": true,
+    "ts": "2026-10-03T08:20:12.785Z"
+  },
+  {
+    "date": "2026-10-03",
+    "reason": "🚫 Không social media sáng",
+    "xp": 5,
+    "auto": true,
+    "ts": "2026-10-03T08:20:12.785Z"
+  },
+  {
+    "date": "2026-10-03",
+    "reason": "🌙 Ngủ trước 22:30",
+    "xp": 5,
+    "auto": true,
+    "ts": "2026-10-03T08:20:12.785Z"
+  }
+]

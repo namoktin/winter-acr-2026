@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>❄️ WINTER ARC 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <span class="logo-icon">❄️</span>
+      <div>
+        <div class="logo-title">WINTER ARC</div>
+        <div class="logo-sub">2026</div>
+      </div>
+    </div>
+    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+  </div>
+
+  <div class="sidebar-xp" id="sidebarXP">
+    <div class="xp-level-name" id="xpLevelName">Rookie</div>
+    <div class="xp-bar-wrap">
+      <div class="xp-bar" id="xpBar" style="width:0%"></div>
+    </div>
+    <div class="xp-numbers"><span id="xpCurrent">0</span> XP</div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#dashboard" class="nav-link active" data-page="dashboard"><span class="nav-icon">🏠</span><span class="nav-text">Dashboard</span></a></li>
+    <li><a href="#daily" class="nav-link" data-page="daily"><span class="nav-icon">📋</span><span class="nav-text">Daily Log</span></a></li>
+    <li><a href="#rewards" class="nav-link" data-page="rewards"><span class="nav-icon">🏆</span><span class="nav-text">Giải Thưởng & Kỷ Luật</span></a></li>
+    <li><a href="#milestones" class="nav-link" data-page="milestones"><span class="nav-icon">🎯</span><span class="nav-text">Milestones</span></a></li>
+    <li><a href="#stats" class="nav-link" data-page="stats"><span class="nav-icon">📊</span><span class="nav-text">Thống Kê</span></a></li>
+    <li><a href="#settings" class="nav-link" data-page="settings"><span class="nav-icon">⚙️</span><span class="nav-text">Cài Đặt</span></a></li>
+  </ul>
+
+  <div class="sidebar-day" id="sidebarDay">
+    <div class="day-label">NGÀY HIỆN TẠI</div>
+    <div class="day-number" id="sidebarDayNum">—</div>
+    <div class="day-phase" id="sidebarPhase">—</div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<main class="main" id="main">
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ── DASHBOARD ── -->
+  <section class="page active" id="page-dashboard">
+    <div class="page-header">
+      <h1 class="page-title gradient-text">Dashboard</h1>
+      <div class="page-date" id="dashDate"></div>
+    </div>
+
+    <!-- Top cards -->
+    <div class="cards-grid">
+      <div class="card card-glow-cyan">
+        <div class="card-label">NGÀY</div>
+        <div class="card-value" id="cardDay">—</div>
+        <div class="card-sub">/ 90 ngày</div>
+        <div class="card-progress-bar"><div class="card-progress-fill" id="dayProgress"></div></div>
+      </div>
+      <div class="card card-glow-purple">
+        <div class="card-label">PHASE</div>
+        <div class="card-value" id="cardPhase" style="font-size:1.1rem">—</div>
+        <div class="card-sub" id="cardPhaseNum">—</div>
+      </div>
+      <div class="card card-glow-pink">
+        <div class="card-label">TỔNG XP</div>
+        <div class="card-value" id="cardXP">0</div>
+        <div class="card-sub" id="cardLevel">Rookie</div>
+      </div>
+      <div class="card card-glow-green">
+        <div class="card-label">NGÀY ĐÃ LOG</div>
+        <div class="card-value" id="cardLogged">0</div>
+        <div class="card-sub">ngày</div>
+      </div>
+    </div>
+
+    <!-- Streak row -->
+    <div class="section-title">🔥 Streak Hiện Tại</div>
+    <div class="streak-row">
+      <div class="streak-card">
+        <div class="streak-icon">⏰</div>
+        <div class="streak-num" id="streakWakeup">0</div>
+        <div class="streak-label">Wake-up 04:30</div>
+      </div>
+      <div class="streak-card">
+        <div class="streak-icon">💪</div>
+        <div class="streak-num" id="streakWorkout">0</div>
+        <div class="streak-label">Workout</div>
+      </div>
+      <div class="streak-card">
+        <div class="streak-icon">🚫</div>
+        <div class="streak-num" id="streakNoSocial">0</div>
+        <div class="streak-label">No Social AM</div>
+      </div>
+    </div>
+
+    <!-- Quick today check -->
+    <div class="section-title">⚡ Quick Check — Hôm Nay</div>
+    <div class="quick-check" id="quickCheck">
+      <div class="quick-loading">Đang tải...</div>
+    </div>
+
+    <!-- Heatmap -->
+    <div class="section-title">📅 Heatmap 90 Ngày</div>
+    <div class="heatmap-wrap">
+      <div class="heatmap" id="heatmap"></div>
+      <div class="heatmap-legend">
+        <span>Ít</span>
+        <div class="legend-dot" style="background:var(--bg-card)"></div>
+        <div class="legend-dot" style="background:#1e3a2f"></div>
+        <div class="legend-dot" style="background:#14532d"></div>
+        <div class="legend-dot" style="background:#16a34a"></div>
+        <div class="legend-dot" style="background:#4ade80"></div>
+        <span>Nhiều</span>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="quote-block" id="dailyQuote">
+      <div class="quote-text">Loading...</div>
+    </div>
+  </section>
+
+  <!-- ── DAILY LOG ── -->
+  <section class="page" id="page-daily">
+    <div class="page-header">
+      <h1 class="page-title gradient-text">Daily Log</h1>
+      <div class="date-nav">
+        <button class="btn-icon" id="prevDay">◀</button>
+        <span class="current-date-label" id="logDateLabel"></span>
+        <button class="btn-icon" id="nextDay">▶</button>
+        <button class="btn-sm" id="goToday">Hôm nay</button>
+      </div>
+    </div>
+
+    <form id="dailyForm">
+      <!-- Morning Intention -->
+      <div class="form-section">
+        <div class="form-section-title">⚡ MORNING INTENTION</div>
+        <div class="form-group">
+          <label>Hôm nay tôi sẽ làm gì để xứng đáng với phiên bản tương lai của mình?</label>
+          <textarea name="intention" rows="3" placeholder="Viết ở đây..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Mục tiêu QUAN TRỌNG NHẤT hôm nay</label>
+            <input type="text" name="mainGoal" placeholder="Chỉ 1 mục tiêu..."/>
+          </div>
+          <div class="form-group" style="max-width:160px">
+            <label>Mood/Energy (1–10)</label>
+            <div class="slider-wrap">
+              <input type="range" name="morningMood" min="1" max="10" value="7"/>
+              <span class="slider-val" id="morningMoodVal">7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checklist -->
+      <div class="form-section">
+        <div class="form-section-title">✅ CHECKLIST NGÀY <span class="checklist-score" id="checklistScore">0/9</span></div>
+        <div class="habit-list" id="habitList">
+          <div class="habit-item" data-key="wakeup">
+            <div class="habit-toggle" data-key="wakeup"></div>
+            <div class="habit-info">
+              <span class="habit-icon">⏰</span>
+              <span class="habit-name">Dậy lúc 04:30</span>
+              <span class="habit-xp">+5 XP</span>
+            </div>
+            <input type="time" name="wakeupTime" class="habit-extra" placeholder="Thực tế"/>
+          </div>
+          <div class="habit-item" data-key="workout">
+            <div class="habit-toggle" data-key="workout"></div>
+            <div class="habit-info">
+              <span class="habit-icon">🏋️</span>
+              <span class="habit-name">Workout sáng (≥45 phút)</span>
+              <span class="habit-xp">+10 XP</span>
+            </div>
+          </div>
+          <div class="habit-item" data-key="coldShower">
+            <div class="habit-toggle" data-key="coldShower"></div>
+            <div class="habit-info">
+              <span class="habit-icon">🚿</span>
+              <span class="habit-name">Tắm lạnh</span>
+              <span class="habit-xp">+5 XP</span>
+            </div>
+            <input type="number" name="coldShowerTime" class="habit-extra" placeholder="Giây lạnh"/>
+          </div>
+          <div class="habit-item" data-key="meditation">
+            <div class="habit-toggle" data-key="meditation"></div>
+            <div class="habit-info">
+              <span class="habit-icon">🧘</span>
+              <span class="habit-name">Meditation / Breathing</span>
+              <span class="habit-xp">+5 XP</span>
+            </div>
+          </div>
+          <div class="habit-item" data-key="reading">
+            <div class="habit-toggle" data-key="reading"></div>
+            <div class="habit-info">
+              <span class="habit-icon">📖</span>
+              <span class="habit-name">Đọc sách (≥20 trang)</span>
+              <span class="habit-xp">+5 XP</span>
+            </div>
+          </div>
+          <div class="habit-item" data-key="water">
+            <div class="habit-toggle" data-key="water"></div>
+            <div class="habit-info">
+              <span class="habit-icon">💧</span>
+              <span class="habit-name">Uống đủ nước (≥2L)</span>
+              <span class="habit-xp">+3 XP</span>
+            </div>
+          </div>
+          <div class="habit-item" data-key="deepWork">
+            <div class="habit-toggle" data-key="deepWork"></div>
+            <div class="habit-info">
+              <span class="habit-icon">🧠</span>
+              <span class="habit-name">Deep Work (≥4h)</span>
+              <span class="habit-xp">+10 XP</span>
+            </div>
+          </div>
+          <div class="habit-item" data-key="noSocial">
+            <div class="habit-toggle" data-key="noSocial"></div>
+            <div class="habit-info">
+              <span class="habit-icon">🚫</span>
+              <span class="habit-name">Không social media trước 12h</span>
+              <span class="habit-xp">+5 XP</span>
+            </div>
+          </div>
+          <div class="habit-item" data-key="sleep">
+            <div class="habit-toggle" data-key="sleep"></div>
+            <div class="habit-info">
+              <span class="habit-icon">🌙</span>
+              <span class="habit-name">Ngủ trước 22:30</span>
+              <span class="habit-xp">+5 XP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workout Log -->
+      <div class="form-section">
+        <div class="form-section-title">💪 WORKOUT LOG</div>
+        <div class="table-wrap">
+          <table class="data-table" id="workoutTable">
+            <thead><tr><th>Bài tập</th><th>Sets × Reps</th><th>Ghi chú</th><th></th></tr></thead>
+            <tbody id="workoutBody"></tbody>
+          </table>
+        </div>
+        <button type="button" class="btn-add" id="addWorkout">+ Thêm bài tập</button>
+        <div class="form-group" style="margin-top:12px">
+          <label>Chiều: Đi bộ/chạy bộ</label>
+          <div class="form-row">
+            <input type="number" name="cardioMinutes" placeholder="Phút" style="max-width:100px"/>
+            <input type="number" name="cardioKm" placeholder="Km" style="max-width:100px" step="0.1"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deep Work -->
+      <div class="form-section">
+        <div class="form-section-title">🧠 DEEP WORK LOG</div>
+        <div class="table-wrap">
+          <table class="data-table" id="deepWorkTable">
+            <thead><tr><th>Session</th><th>Từ</th><th>Đến</th><th>Task</th><th>Productivity (1-5)</th><th></th></tr></thead>
+            <tbody id="deepWorkBody"></tbody>
+          </table>
+        </div>
+        <button type="button" class="btn-add" id="addDeepWork">+ Thêm session</button>
+        <div class="total-display" id="deepWorkTotal">Tổng: 0h 0m</div>
+      </div>
+
+      <!-- Reading -->
+      <div class="form-section">
+        <div class="form-section-title">📚 READING LOG</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Sách đang đọc</label>
+            <input type="text" name="book" placeholder="Tên sách..."/>
+          </div>
+          <div class="form-group" style="max-width:100px">
+            <label>Trang đầu</label>
+            <input type="number" name="pageFrom" placeholder="0"/>
+          </div>
+          <div class="form-group" style="max-width:100px">
+            <label>Trang cuối</label>
+            <input type="number" name="pageTo" placeholder="0"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Key insight học được</label>
+          <textarea name="readingInsight" rows="2" placeholder="Điều gì ấn tượng nhất hôm nay..."></textarea>
+        </div>
+      </div>
+
+      <!-- Physical Benchmarks -->
+      <div class="form-section">
+        <div class="form-section-title">📏 PHYSICAL BENCHMARKS (tuỳ chọn)</div>
+        <div class="form-row">
+          <div class="form-group"><label>Push-up (reps)</label><input type="number" name="pushup" placeholder="—"/></div>
+          <div class="form-group"><label>Plank (giây)</label><input type="number" name="plank" placeholder="—"/></div>
+          <div class="form-group"><label>Squat (reps)</label><input type="number" name="squat" placeholder="—"/></div>
+          <div class="form-group"><label>Pull-up (reps)</label><input type="number" name="pullup" placeholder="—"/></div>
+        </div>
+      </div>
+
+      <!-- Evening Review -->
+      <div class="form-section">
+        <div class="form-section-title">🌙 EVENING REVIEW</div>
+        <div class="form-group">
+          <label>3 điều TỐT nhất hôm nay</label>
+          <input type="text" name="good1" placeholder="1. ..."/>
+          <input type="text" name="good2" placeholder="2. ..." style="margin-top:8px"/>
+          <input type="text" name="good3" placeholder="3. ..." style="margin-top:8px"/>
+        </div>
+        <div class="form-group">
+          <label>1 điều chưa làm tốt + cách cải thiện</label>
+          <textarea name="improve" rows="2" placeholder="..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Điểm hài lòng bản thân (1–10)</label>
+            <div class="slider-wrap">
+              <input type="range" name="selfScore" min="1" max="10" value="7"/>
+              <span class="slider-val" id="selfScoreVal">7</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Một câu để nhớ về ngày hôm nay</label>
+          <input type="text" name="dayQuote" placeholder="..."/>
+        </div>
+      </div>
+
+      <!-- XP Preview -->
+      <div class="xp-preview" id="xpPreview">
+        <div class="xp-preview-title">⚡ XP Preview</div>
+        <div class="xp-preview-total" id="xpPreviewTotal">+0 XP</div>
+        <div class="xp-preview-events" id="xpPreviewEvents"></div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary btn-lg">💾 Lưu Daily Log</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ── REWARDS ── -->
+  <section class="page" id="page-rewards">
+    <div class="page-header">
+      <h1 class="page-title gradient-text">Giải Thưởng & Kỷ Luật</h1>
+    </div>
+
+    <!-- XP Rules -->
+    <div class="section-title">📜 Bảng Quy Tắc XP Tự Động</div>
+    <div class="rules-grid">
+      <div class="rule-card rule-positive">
+        <div class="rule-icon">⏰</div><div class="rule-name">Dậy đúng 04:30</div><div class="rule-xp">+5 XP</div>
+      </div>
+      <div class="rule-card rule-positive">
+        <div class="rule-icon">💪</div><div class="rule-name">Workout sáng hoàn thành</div><div class="rule-xp">+10 XP</div>
+      </div>
+      <div class="rule-card rule-positive">
+        <div class="rule-icon">🧊</div><div class="rule-name">Tắm lạnh</div><div class="rule-xp">+5 XP</div>
+      </div>
+      <div class="rule-card rule-positive">
+        <div class="rule-icon">🧘</div><div class="rule-name">Thiền / Breathing</div><div class="rule-xp">+5 XP</div>
+      </div>
+      <div class="rule-card rule-positive">
+        <div class="rule-icon">📖</div><div class="rule-name">Đọc sách ≥20 trang</div><div class="rule-xp">+5 XP</div>
+      </div>
+      <div class="rule-card rule-positive">
+        <div class="rule-icon">💧</div><div class="rule-name">Uống đủ nước</div><div class="rule-xp">+3 XP</div>
+      </div>
+      <div class="rule-card rule-positive">
+        <div class="rule-icon">🧠</div><div class="rule-name">Deep Work ≥4h</div><div class="rule-xp">+10 XP</div>
+      </div>
+      <div class="rule-card rule-positive">
+        <div class="rule-icon">🚫</div><div class="rule-name">Không social media sáng</div><div class="rule-xp">+5 XP</div>
+      </div>
+      <div class="rule-card rule-positive">
+        <div class="rule-icon">🌙</div><div class="rule-name">Ngủ trước 22:30</div><div class="rule-xp">+5 XP</div>
+      </div>
+      <div class="rule-card rule-bonus">
+        <div class="rule-icon">🏆</div><div class="rule-name">PERFECT DAY — 9/9 habits</div><div class="rule-xp">+20 XP BONUS</div>
+      </div>
+      <div class="rule-card rule-negative">
+        <div class="rule-icon">❌</div><div class="rule-name">Bỏ workout</div><div class="rule-xp">-10 XP</div>
+      </div>
+      <div class="rule-card rule-negative">
+        <div class="rule-icon">😴</div><div class="rule-name">Ngủ quá 04:30</div><div class="rule-xp">-5 XP</div>
+      </div>
+      <div class="rule-card rule-negative">
+        <div class="rule-icon">📱</div><div class="rule-name">Social media buổi sáng</div><div class="rule-xp">-5 XP</div>
+      </div>
+      <div class="rule-card rule-negative">
+        <div class="rule-icon">🔴</div><div class="rule-name">Ngủ sau 22:30</div><div class="rule-xp">-5 XP</div>
+      </div>
+    </div>
+
+    <!-- Manual entry -->
+    <div class="section-title">✍️ Thêm Thủ Công</div>
+    <div class="manual-form card">
+      <div class="form-row">
+        <div class="form-group" style="flex:2">
+          <label>Lý do</label>
+          <input type="text" id="rewardReason" placeholder="Mô tả giải thưởng hoặc kỷ luật..."/>
+        </div>
+        <div class="form-group" style="max-width:150px">
+          <label>XP (âm = phạt)</label>
+          <input type="number" id="rewardXP" placeholder="e.g. 50 hoặc -20"/>
+        </div>
+        <div class="form-group" style="max-width:150px">
+          <label>Ngày</label>
+          <input type="date" id="rewardDate"/>
+        </div>
+      </div>
+      <button class="btn-primary" id="addRewardBtn">+ Thêm</button>
+    </div>
+
+    <!-- Event log -->
+    <div class="section-title">📜 Lịch Sử XP</div>
+    <div class="event-log" id="eventLog">
+      <div class="loading">Đang tải...</div>
+    </div>
+  </section>
+
+  <!-- ── MILESTONES ── -->
+  <section class="page" id="page-milestones">
+    <div class="page-header">
+      <h1 class="page-title gradient-text">Milestones</h1>
+    </div>
+    <div class="milestone-timeline" id="milestoneTimeline">
+      <div class="loading">Đang tải...</div>
+    </div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <section class="page" id="page-stats">
+    <div class="page-header">
+      <h1 class="page-title gradient-text">Thống Kê</h1>
+    </div>
+
+    <div class="stats-grid">
+      <div class="card chart-card">
+        <div class="chart-title">📈 XP Tích Lũy Theo Tuần</div>
+        <canvas id="chartXP"></canvas>
+      </div>
+      <div class="card chart-card">
+        <div class="chart-title">🌙 Điểm Hài Lòng Bản Thân</div>
+        <canvas id="chartScore"></canvas>
+      </div>
+      <div class="card chart-card">
+        <div class="chart-title">✅ Tỷ Lệ Hoàn Thành Habits (%)</div>
+        <canvas id="chartHabits"></canvas>
+      </div>
+      <div class="card chart-card">
+        <div class="chart-title">🧠 Giờ Deep Work Mỗi Tuần</div>
+        <canvas id="chartDeepWork"></canvas>
+      </div>
+      <div class="card chart-card chart-card-wide">
+        <div class="chart-title">💪 Physical Progress</div>
+        <canvas id="chartPhysical"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SETTINGS ── -->
+  <section class="page" id="page-settings">
+    <div class="page-header">
+      <h1 class="page-title gradient-text">Cài Đặt</h1>
+    </div>
+
+    <div class="card settings-card">
+      <div class="settings-group">
+        <div class="settings-label">Tên của bạn</div>
+        <input type="text" id="settingName" placeholder="Nam"/>
+      </div>
+      <div class="settings-group">
+        <div class="settings-label">Ngày bắt đầu Winter Arc</div>
+        <input type="date" id="settingStartDate"/>
+      </div>
+
+      <div class="settings-section-title">🔔 Thông Báo</div>
+      <div class="settings-group toggle-group">
+        <div class="settings-label">Bật thông báo</div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="settingNotifEnabled"/>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="settings-group">
+        <div class="settings-label">⏰ Nhắc dậy</div>
+        <input type="time" id="settingWakeup" value="04:25"/>
+      </div>
+      <div class="settings-group">
+        <div class="settings-label">📝 Nhắc morning log</div>
+        <input type="time" id="settingMorningLog" value="06:00"/>
+      </div>
+      <div class="settings-group">
+        <div class="settings-label">🌙 Nhắc evening review</div>
+        <input type="time" id="settingEveningReview" value="21:00"/>
+      </div>
+      <div class="settings-group">
+        <div class="settings-label">📵 Nhắc wind down</div>
+        <input type="time" id="settingWindDown" value="21:30"/>
+      </div>
+
+      <button class="btn-primary" id="saveSettingsBtn">💾 Lưu cài đặt</button>
+      <button class="btn-secondary" id="requestNotifBtn">🔔 Bật quyền thông báo</button>
+    </div>
+  </section>
+
+</main>
+
+<script src="/js/app.js"></script>
+</body>
+</html>

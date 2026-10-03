@@ -1,0 +1,75 @@
+{
+  "2026-10-03": {
+    "checklist": {
+      "wakeup": true,
+      "workout": true,
+      "coldShower": true,
+      "meditation": true,
+      "reading": false,
+      "water": true,
+      "deepWork": true,
+      "noSocial": true,
+      "sleep": true
+    },
+    "intention": "ngày đầu tiên luôn là ngày khó khăn nhất\n",
+    "mainGoal": "học học học",
+    "morningMood": "3",
+    "book": "",
+    "readingInsight": "",
+    "good1": "",
+    "good2": "",
+    "good3": "",
+    "improve": "",
+    "dayQuote": "",
+    "wakeupTime": "",
+    "coldShowerTime": "",
+    "cardioMinutes": "",
+    "cardioKm": "",
+    "pageFrom": "",
+    "pageTo": "",
+    "selfScore": "7",
+    "workout_exercises": [],
+    "deepWork": {
+      "sessions": [],
+      "totalHours": 0
+    },
+    "xp": 48,
+    "events": [
+      {
+        "reason": "⏰ Dậy đúng 04:30",
+        "xp": 5
+      },
+      {
+        "reason": "💪 Workout sáng hoàn thành",
+        "xp": 10
+      },
+      {
+        "reason": "🧊 Tắm lạnh",
+        "xp": 5
+      },
+      {
+        "reason": "🧘 Thiền/Breathing",
+        "xp": 5
+      },
+      {
+        "reason": "💧 Uống đủ nước",
+        "xp": 3
+      },
+      {
+        "reason": "🧠 Deep Work ≥4h",
+        "xp": 10
+      },
+      {
+        "reason": "🚫 Không social media sáng",
+        "xp": 5
+      },
+      {
+        "reason": "🌙 Ngủ trước 22:30",
+        "xp": 5
+      }
+    ],
+    "habitCount": 8,
+    "_logged": true,
+    "savedAt": "2026-10-03T08:20:12.782Z"
+  }
+}

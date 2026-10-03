@@ -1,0 +1,21 @@
+{
+  "startDate": "2026-10-03",
+  "name": "Nam",
+  "totalDays": 90,
+  "notifications": {
+    "enabled": true,
+    "wakeup": "04:25",
+    "morningLog": "06:00",
+    "eveningReview": "21:00",
+    "windDown": "21:30"
+  },
+  "milestones": [
+    { "day": 7,  "title": "Hoàn thành tuần đầu không bỏ", "desc": "Log 7/7 ngày", "reached": false },
+    { "day": 14, "title": "Thói quen sáng sớm ổn định",   "desc": "Dậy đúng 04:30 ≥ 12/14 ngày", "reached": false },
+    { "day": 30, "title": "End Phase 1 Review",            "desc": "Đánh giá thể lực + progress kỹ năng", "reached": false },
+    { "day": 45, "title": "Midpoint Check",                "desc": "So sánh với Day 1", "reached": false },
+    { "day": 60, "title": "End Phase 2 Review",            "desc": "Test thể lực: push-up, plank, 1km time", "reached": false },
+    { "day": 75, "title": "Final Stretch",                 "desc": "Không giảm — tăng thêm", "reached": false },
+    { "day": 90, "title": "WINTER ARC COMPLETE ❄️",       "desc": "Tổng kết toàn bộ", "reached": false }
+  ]
+}

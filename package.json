@@ -1,0 +1,14 @@
+{
+  "name": "winter-arc-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "description": "❄️ WINTER ARC 2026 — 90-day self-discipline tracker",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
