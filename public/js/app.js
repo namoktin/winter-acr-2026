@@ -58,6 +58,7 @@ function navigate(page) {
   if (page === 'rewards')     loadRewards();
   if (page === 'milestones')  loadMilestones();
   if (page === 'stats')       loadStats();
+  if (page === 'plan')        loadPlan();
   if (page === 'settings')    loadSettings();
 }
 
@@ -717,6 +718,19 @@ function scheduleNotifications(notifSettings) {
       new Notification(title, { body, icon: '/favicon.ico' });
     }, delay);
     notifTimers.push(t);
+  });
+}
+
+// ─── Plan Page ────────────────────────────────────────────────
+function loadPlan() {
+  // Tab switching
+  document.querySelectorAll('.plan-tab').forEach(tab => {
+    tab.onclick = () => {
+      document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.plan-content').forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('tab-' + tab.dataset.tab)?.classList.add('active');
+    };
   });
 }
 

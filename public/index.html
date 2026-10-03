@@ -39,6 +39,7 @@
     <li><a href="#rewards" class="nav-link" data-page="rewards"><span class="nav-icon">🏆</span><span class="nav-text">Giải Thưởng & Kỷ Luật</span></a></li>
     <li><a href="#milestones" class="nav-link" data-page="milestones"><span class="nav-icon">🎯</span><span class="nav-text">Milestones</span></a></li>
     <li><a href="#stats" class="nav-link" data-page="stats"><span class="nav-icon">📊</span><span class="nav-text">Thống Kê</span></a></li>
+    <li><a href="#plan" class="nav-link" data-page="plan"><span class="nav-icon">📖</span><span class="nav-text">Kế Hoạch</span></a></li>
     <li><a href="#settings" class="nav-link" data-page="settings"><span class="nav-icon">⚙️</span><span class="nav-text">Cài Đặt</span></a></li>
   </ul>
 
@@ -521,6 +522,455 @@
       <button class="btn-primary" id="saveSettingsBtn">💾 Lưu cài đặt</button>
       <button class="btn-secondary" id="requestNotifBtn">🔔 Bật quyền thông báo</button>
     </div>
+  </section>
+
+  <!-- ── KẾ HOẠCH ── -->
+  <section class="page" id="page-plan">
+    <div class="page-header">
+      <h1 class="page-title gradient-text">Kế Hoạch</h1>
+    </div>
+
+    <!-- Tab switcher -->
+    <div class="plan-tabs">
+      <button class="plan-tab active" data-tab="schedule">⏰ Thời Gian Biểu</button>
+      <button class="plan-tab" data-tab="workout">💪 Workout Plan</button>
+      <button class="plan-tab" data-tab="rules">🚫 Luật Bất Khả Xâm Phạm</button>
+      <button class="plan-tab" data-tab="phases">⚔️ 3 Phases</button>
+    </div>
+
+    <!-- SCHEDULE -->
+    <div class="plan-content active" id="tab-schedule">
+      <div class="schedule-grid">
+        <div class="schedule-block block-wake">
+          <div class="sch-time">04:30</div>
+          <div class="sch-icon">⏰</div>
+          <div class="sch-title">THỨC DẬY</div>
+          <div class="sch-desc">Không có alarm thứ 2. Dậy là dậy.</div>
+        </div>
+        <div class="schedule-block block-prep">
+          <div class="sch-time">04:30 – 04:45</div>
+          <div class="sch-icon">💧</div>
+          <div class="sch-title">Khởi động</div>
+          <div class="sch-desc">Uống nước, rửa mặt lạnh, không điện thoại</div>
+        </div>
+        <div class="schedule-block block-workout">
+          <div class="sch-time">04:45 – 05:45</div>
+          <div class="sch-icon">🏋️</div>
+          <div class="sch-title">THỂ DỤC BUỔI SÁNG</div>
+          <div class="sch-desc">60 phút workout theo workout plan</div>
+        </div>
+        <div class="schedule-block block-cold">
+          <div class="sch-time">05:45 – 06:00</div>
+          <div class="sch-icon">🚿</div>
+          <div class="sch-title">Tắm lạnh</div>
+          <div class="sch-desc">Tối thiểu 30 giây lạnh hoàn toàn</div>
+        </div>
+        <div class="schedule-block block-mind">
+          <div class="sch-time">06:00 – 06:30</div>
+          <div class="sch-icon">🧘</div>
+          <div class="sch-title">Meditation + Journaling</div>
+          <div class="sch-desc">Mở daily log, viết intention</div>
+        </div>
+        <div class="schedule-block block-meal">
+          <div class="sch-time">06:30 – 07:00</div>
+          <div class="sch-icon">🍳</div>
+          <div class="sch-title">Ăn sáng + Đọc sách</div>
+          <div class="sch-desc">Ăn sáng lành mạnh + đọc 30 phút</div>
+        </div>
+        <div class="schedule-block block-deep">
+          <div class="sch-time">07:00 – 12:00</div>
+          <div class="sch-icon">🧠</div>
+          <div class="sch-title">DEEP WORK BLOCK 1</div>
+          <div class="sch-desc">Công việc / học tập quan trọng nhất — 5 giờ</div>
+        </div>
+        <div class="schedule-block block-meal">
+          <div class="sch-time">12:00 – 13:00</div>
+          <div class="sch-icon">🍱</div>
+          <div class="sch-title">Ăn trưa + nghỉ</div>
+          <div class="sch-desc">Không mạng xã hội</div>
+        </div>
+        <div class="schedule-block block-deep">
+          <div class="sch-time">13:00 – 17:00</div>
+          <div class="sch-icon">💻</div>
+          <div class="sch-title">DEEP WORK BLOCK 2</div>
+          <div class="sch-desc">4 giờ tiếp theo</div>
+        </div>
+        <div class="schedule-block block-workout">
+          <div class="sch-time">17:00 – 18:00</div>
+          <div class="sch-icon">🏃</div>
+          <div class="sch-title">Thể dục chiều</div>
+          <div class="sch-desc">Đi bộ / chạy bộ</div>
+        </div>
+        <div class="schedule-block block-meal">
+          <div class="sch-time">18:00 – 19:00</div>
+          <div class="sch-icon">🥗</div>
+          <div class="sch-title">Ăn tối nhẹ</div>
+          <div class="sch-desc">Tránh carb tinh chế buổi tối</div>
+        </div>
+        <div class="schedule-block block-mind">
+          <div class="sch-time">19:00 – 21:00</div>
+          <div class="sch-icon">📚</div>
+          <div class="sch-title">Học thêm / Side project</div>
+          <div class="sch-desc">Đọc sách / code / học kỹ năng</div>
+        </div>
+        <div class="schedule-block block-review">
+          <div class="sch-time">21:00 – 21:30</div>
+          <div class="sch-icon">📝</div>
+          <div class="sch-title">Review ngày</div>
+          <div class="sch-desc">Điền daily log buổi tối</div>
+        </div>
+        <div class="schedule-block block-wind">
+          <div class="sch-time">21:30 – 22:00</div>
+          <div class="sch-icon">📵</div>
+          <div class="sch-title">Wind down</div>
+          <div class="sch-desc">Không màn hình</div>
+        </div>
+        <div class="schedule-block block-sleep">
+          <div class="sch-time">22:00</div>
+          <div class="sch-icon">😴</div>
+          <div class="sch-title">NGỦ</div>
+          <div class="sch-desc">Tuyệt đối — không trì hoãn</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKOUT PLAN -->
+    <div class="plan-content" id="tab-workout">
+
+      <div class="phase-section">
+        <div class="phase-badge badge-fire">🔥 PHASE 1 — FOUNDATION (Tuần 1–4)</div>
+
+        <div class="workout-day-grid">
+          <div class="workout-day-card">
+            <div class="wday-title">Thứ 2, 4, 6 — Upper Body</div>
+            <table class="data-table">
+              <thead><tr><th>Bài tập</th><th>Sets × Reps</th></tr></thead>
+              <tbody>
+                <tr><td>Push-up Standard</td><td>4 × 15–20</td></tr>
+                <tr><td>Wide Push-up</td><td>3 × 12</td></tr>
+                <tr><td>Diamond Push-up</td><td>3 × 10</td></tr>
+                <tr><td>Shoulder Press (tạ)</td><td>3 × 15</td></tr>
+                <tr><td>Lateral Raise</td><td>3 × 15</td></tr>
+                <tr><td>Bicep Curl</td><td>3 × 15</td></tr>
+                <tr><td>Tricep Dip (ghế)</td><td>3 × 12</td></tr>
+                <tr><td>Plank</td><td>3 × 30–45s</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="workout-day-card">
+            <div class="wday-title">Thứ 3, 5, 7 — Lower Body + Core</div>
+            <table class="data-table">
+              <thead><tr><th>Bài tập</th><th>Sets × Reps</th></tr></thead>
+              <tbody>
+                <tr><td>Squat</td><td>4 × 20–25</td></tr>
+                <tr><td>Jump Squat</td><td>3 × 15</td></tr>
+                <tr><td>Reverse Lunge</td><td>3 × 12/chân</td></tr>
+                <tr><td>Glute Bridge</td><td>3 × 20</td></tr>
+                <tr><td>Calf Raise</td><td>4 × 25</td></tr>
+                <tr><td>Mountain Climbers</td><td>3 × 30s</td></tr>
+                <tr><td>Bicycle Crunch</td><td>3 × 20/side</td></tr>
+                <tr><td>Leg Raise</td><td>3 × 15</td></tr>
+                <tr><td>Russian Twist</td><td>3 × 20</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="workout-day-card">
+            <div class="wday-title">Chủ Nhật — Active Recovery</div>
+            <ul class="workout-list">
+              <li>🚶 Đi bộ 30–45 phút (nhịp tim thấp)</li>
+              <li>🤸 Full body stretch 20 phút</li>
+              <li>🪵 Foam rolling (nếu có)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge badge-thunder">⚡ PHASE 2 — POWER (Tuần 5–8)</div>
+        <div class="workout-day-grid">
+          <div class="workout-day-card">
+            <div class="wday-title">Thứ 2 — Chest + Triceps</div>
+            <table class="data-table"><thead><tr><th>Bài tập</th><th>Sets × Reps</th></tr></thead><tbody>
+              <tr><td>Push-up Explosive</td><td>4 × 12</td></tr>
+              <tr><td>Archer Push-up</td><td>3 × 8/side</td></tr>
+              <tr><td>Pike Push-up</td><td>3 × 15</td></tr>
+              <tr><td>Tricep Dip</td><td>4 × 15</td></tr>
+              <tr><td>Diamond Push-up</td><td>4 × 12</td></tr>
+              <tr><td>Decline Push-up</td><td>3 × 12</td></tr>
+            </tbody></table>
+          </div>
+          <div class="workout-day-card">
+            <div class="wday-title">Thứ 3 — Back + Biceps</div>
+            <table class="data-table"><thead><tr><th>Bài tập</th><th>Sets × Reps</th></tr></thead><tbody>
+              <tr><td>Pull-up / Negative</td><td>4 × max</td></tr>
+              <tr><td>Renegade Row</td><td>3 × 10/side</td></tr>
+              <tr><td>Superman Hold</td><td>3 × 30s</td></tr>
+              <tr><td>Dumbbell Row</td><td>4 × 12</td></tr>
+              <tr><td>Bicep Curl</td><td>4 × 15</td></tr>
+              <tr><td>Hammer Curl</td><td>3 × 12</td></tr>
+            </tbody></table>
+          </div>
+          <div class="workout-day-card">
+            <div class="wday-title">Thứ 4 — Legs + Core</div>
+            <table class="data-table"><thead><tr><th>Bài tập</th><th>Sets × Reps</th></tr></thead><tbody>
+              <tr><td>Bulgarian Split Squat</td><td>4 × 12/chân</td></tr>
+              <tr><td>Jump Squat</td><td>4 × 20</td></tr>
+              <tr><td>Single-leg Deadlift</td><td>3 × 12/chân</td></tr>
+              <tr><td>Wall Sit</td><td>3 × 45s</td></tr>
+              <tr><td>Plank + Shoulder Tap</td><td>3 × 30s</td></tr>
+            </tbody></table>
+          </div>
+          <div class="workout-day-card">
+            <div class="wday-title">Thứ 5 — Shoulders + Cardio</div>
+            <table class="data-table"><thead><tr><th>Bài tập</th><th>Sets × Reps</th></tr></thead><tbody>
+              <tr><td>Pike Push-up</td><td>4 × 15</td></tr>
+              <tr><td>Lateral Raise</td><td>4 × 15</td></tr>
+              <tr><td>Front Raise</td><td>3 × 12</td></tr>
+              <tr><td>Burpees</td><td>4 × 15</td></tr>
+              <tr><td>High Knees</td><td>4 × 30s</td></tr>
+              <tr><td>Box Jump / Jump Squat</td><td>3 × 15</td></tr>
+            </tbody></table>
+          </div>
+          <div class="workout-day-card">
+            <div class="wday-title">Thứ 6 — Full Body HIIT</div>
+            <div class="hiit-circuit">
+              <div class="hiit-label">4 vòng — nghỉ 2 phút giữa vòng — KHÔNG nghỉ trong circuit</div>
+              <ul class="workout-list">
+                <li>💥 Burpees × 10</li>
+                <li>👊 Push-up × 15</li>
+                <li>🦵 Jump Squat × 20</li>
+                <li>🏔️ Mountain Climbers × 30s</li>
+                <li>🧱 Plank × 30s</li>
+              </ul>
+            </div>
+          </div>
+          <div class="workout-day-card">
+            <div class="wday-title">Thứ 7 — Chạy bộ</div>
+            <ul class="workout-list">
+              <li>🚶 Warm up 5 phút đi bộ</li>
+              <li>🏃 Chạy 3–5km (vừa phải)</li>
+              <li>🚶 Cool down 5 phút + stretch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase-section">
+        <div class="phase-badge badge-diamond">💎 PHASE 3 — ELITE (Tuần 9–13)</div>
+        <div class="elite-targets">
+          <div class="elite-card">
+            <div class="elite-label">Intensity</div>
+            <div class="elite-val">+30%</div>
+            <div class="elite-sub">so với Phase 2</div>
+          </div>
+          <div class="elite-card">
+            <div class="elite-label">Rest time</div>
+            <div class="elite-val">45s</div>
+            <div class="elite-sub">giảm từ 60s</div>
+          </div>
+          <div class="elite-card">
+            <div class="elite-label">Chạy target</div>
+            <div class="elite-val">5km</div>
+            <div class="elite-sub">≤ 25 phút</div>
+          </div>
+          <div class="elite-card">
+            <div class="elite-label">HIIT</div>
+            <div class="elite-val">3×/tuần</div>
+            <div class="elite-sub">20 phút</div>
+          </div>
+        </div>
+
+        <div class="section-title">🏁 Benchmark Cuối Winter Arc (Day 90)</div>
+        <div class="benchmark-grid">
+          <div class="benchmark-item"><span class="bm-icon">👊</span><span class="bm-target">Push-up</span><span class="bm-val">50 reps</span></div>
+          <div class="benchmark-item"><span class="bm-icon">🧱</span><span class="bm-target">Plank</span><span class="bm-val">3 phút</span></div>
+          <div class="benchmark-item"><span class="bm-icon">🦵</span><span class="bm-target">Squat</span><span class="bm-val">100 reps</span></div>
+          <div class="benchmark-item"><span class="bm-icon">🏃</span><span class="bm-target">Chạy 5km</span><span class="bm-val">≤ 25 phút</span></div>
+          <div class="benchmark-item"><span class="bm-icon">🔝</span><span class="bm-target">Pull-up</span><span class="bm-val">15 reps</span></div>
+        </div>
+      </div>
+
+      <!-- Cold shower -->
+      <div class="phase-section">
+        <div class="phase-badge badge-ice">🧊 Tắm Lạnh Protocol (Bắt buộc hàng ngày)</div>
+        <div class="cold-grid">
+          <div class="cold-item"><div class="cold-week">Tuần 1–2</div><div class="cold-dur">30 giây lạnh</div><div class="cold-note">cuối buổi tắm thường</div></div>
+          <div class="cold-item"><div class="cold-week">Tuần 3–4</div><div class="cold-dur">60 giây lạnh</div><div class="cold-note">hoàn toàn</div></div>
+          <div class="cold-item"><div class="cold-week">Tuần 5–8</div><div class="cold-dur">2–3 phút lạnh</div><div class="cold-note">hoàn toàn</div></div>
+          <div class="cold-item"><div class="cold-week">Tuần 9–13</div><div class="cold-dur">5 phút lạnh</div><div class="cold-note">hoàn toàn</div></div>
+        </div>
+        <div class="cold-benefits">⚡ Testosterone tăng · Cortisol giảm · Dopamine tăng 250% · Willpower cực mạnh</div>
+      </div>
+
+      <!-- Nutrition -->
+      <div class="phase-section">
+        <div class="phase-badge badge-food">🍽️ Dinh Dưỡng Cơ Bản</div>
+        <div class="nutrition-grid">
+          <div class="nutrition-card">
+            <div class="nutrition-time">☀️ Bữa sáng (06:30)</div>
+            <ul class="workout-list">
+              <li>🥚 Protein: 3 trứng / protein shake</li>
+              <li>🌾 Carb phức: Yến mạch / bánh mì nguyên cám</li>
+              <li>🥑 Fat tốt: Bơ / các loại hạt</li>
+            </ul>
+          </div>
+          <div class="nutrition-card">
+            <div class="nutrition-time">🌤️ Bữa trưa (12:00)</div>
+            <ul class="workout-list">
+              <li>🍚 Cơm gạo lứt + thịt nạc + rau xanh nhiều</li>
+              <li>💧 Uống 500ml nước trước khi ăn</li>
+            </ul>
+          </div>
+          <div class="nutrition-card">
+            <div class="nutrition-time">🌙 Bữa tối (18:00)</div>
+            <ul class="workout-list">
+              <li>🥗 Salad + protein + rau</li>
+              <li>🚫 Tránh carb tinh chế buổi tối</li>
+            </ul>
+          </div>
+          <div class="nutrition-card">
+            <div class="nutrition-time">💊 Bổ sung (nếu có)</div>
+            <ul class="workout-list">
+              <li>Creatine: 5g/ngày</li>
+              <li>Vitamin D3: 2000–5000 IU/ngày</li>
+              <li>Omega-3: 1–2 viên/ngày</li>
+              <li>Magnesium: 200–400mg trước ngủ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULES -->
+    <div class="plan-content" id="tab-rules">
+      <div class="rules-list">
+        <div class="rule-item">
+          <div class="rule-num">01</div>
+          <div class="rule-body">
+            <div class="rule-title">Không alarm thứ 2</div>
+            <div class="rule-detail">Dậy là dậy. Không thương lượng.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">02</div>
+          <div class="rule-body">
+            <div class="rule-title">Không điện thoại trong 2 giờ đầu</div>
+            <div class="rule-detail">04:30 – 06:30 là thời gian của mày, không phải của người khác.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">03</div>
+          <div class="rule-body">
+            <div class="rule-title">Không alcohol, không thuốc lá</div>
+            <div class="rule-detail">90 ngày. Không ngoại lệ.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">04</div>
+          <div class="rule-body">
+            <div class="rule-title">Không bỏ qua workout vì "mệt"</div>
+            <div class="rule-detail">Mệt mới cần tập. Đó là điểm mày cần vượt qua.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">05</div>
+          <div class="rule-body">
+            <div class="rule-title">Không nói "ngày mai"</div>
+            <div class="rule-detail">Nếu plan là hôm nay, làm hôm nay. Ngày mai không tồn tại.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">06</div>
+          <div class="rule-body">
+            <div class="rule-title">Mỗi ngày phải viết daily log</div>
+            <div class="rule-detail">Dù chỉ 3 dòng. Không có ngày nào được bỏ qua.</div>
+          </div>
+        </div>
+      </div>
+      <div class="quote-block" style="margin-top:32px">
+        <div class="quote-text">"Winter Arc không phải về việc trở nên hoàn hảo. Nó về việc không bỏ cuộc. Mày không cần cảm thấy muốn làm — mày chỉ cần LÀM."</div>
+      </div>
+    </div>
+
+    <!-- PHASES -->
+    <div class="plan-content" id="tab-phases">
+      <div class="phases-timeline">
+        <div class="phase-card phase-ignition">
+          <div class="phase-header">
+            <div class="phase-title">🔥 PHASE 1 — IGNITION</div>
+            <div class="phase-dates">03/10 – 30/10 (Tuần 1–4)</div>
+          </div>
+          <div class="phase-goal">Phá vỡ mọi thói quen cũ. Xây móng. Endure pain.</div>
+          <div class="phase-books">
+            <div class="phase-books-title">📚 Sách đọc trong phase này:</div>
+            <div class="book-item">📘 "Atomic Habits" — James Clear (Tuần 1)</div>
+            <div class="book-item">📗 "The 5 AM Club" — Robin Sharma (Tuần 2)</div>
+          </div>
+          <div class="phase-mental">
+            <div class="mental-title">🧠 Mental model:</div>
+            <div class="mental-text">10 phút thiền · 10 phút journal · 10 phút visualize mỗi sáng</div>
+          </div>
+        </div>
+
+        <div class="phase-arrow">↓</div>
+
+        <div class="phase-card phase-acceleration">
+          <div class="phase-header">
+            <div class="phase-title">⚡ PHASE 2 — ACCELERATION</div>
+            <div class="phase-dates">31/10 – 27/11 (Tuần 5–8)</div>
+          </div>
+          <div class="phase-goal">Khi thói quen đã hình thành, đẩy cường độ lên gấp 2.</div>
+          <div class="phase-books">
+            <div class="phase-books-title">📚 Sách đọc:</div>
+            <div class="book-item">📘 "Deep Work" — Cal Newport (T5)</div>
+            <div class="book-item">📗 "Can't Hurt Me" — David Goggins (T6)</div>
+            <div class="book-item">📕 "Outliers" — Malcolm Gladwell (T7)</div>
+            <div class="book-item">📙 "The 48 Laws of Power" — Robert Greene (T8)</div>
+          </div>
+          <div class="phase-mental">
+            <div class="mental-title">🎯 Target:</div>
+            <div class="mental-text">Deep Work ≥ 6h/ngày · Code/project review mỗi tối 19:00–21:00</div>
+          </div>
+        </div>
+
+        <div class="phase-arrow">↓</div>
+
+        <div class="phase-card phase-forging">
+          <div class="phase-header">
+            <div class="phase-title">💎 PHASE 3 — FORGING</div>
+            <div class="phase-dates">28/11 – 31/12 (Tuần 9–13)</div>
+          </div>
+          <div class="phase-goal">Đây là giai đoạn kẻ khác bỏ cuộc. Mày không bỏ.</div>
+          <div class="phase-books">
+            <div class="phase-books-title">📚 Sách đọc:</div>
+            <div class="book-item">📘 "The War of Art" — Steven Pressfield (T9)</div>
+            <div class="book-item">📗 Sách chuyên ngành kỹ năng đang học (T10–13)</div>
+          </div>
+          <div class="phase-mental">
+            <div class="mental-title">🏁 Output bắt buộc vào 31/12:</div>
+            <div class="mental-text">1 project hoàn chỉnh · 1 kỹ năng có thể chứng minh · 1 thành tích đo lường được</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Goggins rule -->
+      <div class="mental-models">
+        <div class="section-title">🧠 Mental Models</div>
+        <div class="model-card">
+          <div class="model-title">Goggins' 40% Rule</div>
+          <div class="model-desc">Khi mày nghĩ mày đã đến giới hạn → mày mới đang ở <strong style="color:var(--accent-cyan)">40%</strong> khả năng thật sự. Lần sau khi muốn dừng, nhẩm: <em>"Tao còn 60% nữa."</em></div>
+        </div>
+        <div class="model-card">
+          <div class="model-title">The Identity Shift</div>
+          <div class="model-desc">Đừng nghĩ <em>"tao đang cố tập thể dục"</em>. Nghĩ: <strong style="color:var(--accent-purple-light)">"Tao LÀ người tập thể dục."</strong> Hành động theo identity, không theo motivation.</div>
+        </div>
+        <div class="model-card">
+          <div class="model-title">Compound Effect</div>
+          <div class="model-desc">Cải thiện 1% mỗi ngày × 90 ngày = <strong style="color:var(--accent-green)">(1.01)^90 = 2.45x</strong> — mày sẽ mạnh gấp đôi.</div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
 </main>
