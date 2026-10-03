@@ -1,12 +1,16 @@
 {
   "name": "winter-arc-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
   "description": "❄️ WINTER ARC 2026 — 90-day self-discipline tracker",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^5.0.0",
+    "mongoose": "^8.7.0"
   },
   "keywords": [],
   "author": "",
